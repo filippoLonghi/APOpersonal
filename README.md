@@ -1,5 +1,2 @@
 # APOpersonal
-ciao!
-Prova numero due
-Prova numero tre
-Prova numero quattro
+Le mie soluzioni ai lab APO
