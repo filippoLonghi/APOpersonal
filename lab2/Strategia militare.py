@@ -24,10 +24,13 @@ file_rimanenti = {}
 Found = False
 for rig in range(len(schieramento)):
     for col in range(len(schieramento[0])):
+
         if schieramento[rig][col] == 1:
             larghezza += 1
+
         if schieramento[rig][col] > numero_di_file:
             numero_di_file = schieramento[rig][col]
+
         if schieramento[rig][col]==1 and rig-1 > 0 and schieramento[rig-1][col] > schieramento[rig][col] and not Found:
             direzione += "Sud"
             Found = True
@@ -40,9 +43,15 @@ for rig in range(len(schieramento)):
         elif schieramento[rig][col]==1 and col-1 > 0 and schieramento[rig][col-1] > schieramento[rig][col] and not Found:
             direzione += "Est"
             Found = True
+
         if schieramento[rig][col] not in file_rimanenti:
             file_rimanenti[schieramento[rig][col]]=1
         else:
             file_rimanenti[schieramento[rig][col]]+=1
-        fila_con_più_buchi =
 
+valori_diz = list(file_rimanenti.values())
+chiavi_diz = list(file_rimanenti.keys())
+pos_min = valori_diz.index(min(valori_diz))
+fila_con_piu_buchi = chiavi_diz[pos_min]
+
+print(f'larghezza: {larghezza}\nnumero di file: {numero_di_file}\ndirezione: {direzione}\nfila con più buchi: {fila_con_piu_buchi}')
