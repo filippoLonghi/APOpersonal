@@ -12,7 +12,7 @@ parole = split("[^a-zA-Z]", parole)
 #for i in range(len(parole)):
 #    if not parole[i].isalpha():
 #        parole = parole[:i] + " " + parole[i+1:]
-#parole = parole.split("[^a-zA-Z]+")
+#parole = parole.split()
 
 #in alternativa:
 #parole = ""

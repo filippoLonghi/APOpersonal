@@ -17,6 +17,8 @@ while line != "":
     schieramento.append(riga)
     line = inputFile.readline()
 
+inputFile.close()
+
 larghezza = 0
 numero_di_file = 0
 direzione = ""

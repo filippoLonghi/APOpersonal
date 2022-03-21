@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 
 root = Tk()
-root.title("Esercizio 1")
+root.title("Esercizio 2")
 
 la = ttk.Label(root)
 
