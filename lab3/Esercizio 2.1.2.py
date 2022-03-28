@@ -6,13 +6,13 @@ root.title("Esercizio 2")
 
 la = ttk.Label(root)
 
-def funzione(*args):
+def funzione():
     la["background"] = colori[int(str(lb.curselection()).strip("(),"))]
 
 colori = ["red", "blue", "yellow", "white"]
 coloriVar = StringVar(value=colori)
 lb = Listbox(root, listvariable=coloriVar, height=4)
-lb.bind('<<ListboxSelect>>', funzione)
+lb.bind('<<ListboxSelect>>', lambda e: funzione())
 
 root.rowconfigure(0, weight=4)
 root.columnconfigure(0, weight=4)
