@@ -49,7 +49,7 @@ b = [[0,0,0],[0,0,0],[0,0,0]]
 for r in range(3):
     for c in range (3):
         b[r][c] = Canvas(root, width=200, height=200)
-        quadrato = b[r][c].create_rectangle((10, 10, 190, 190), fill="blue", width=5)
+        quadrato = b[r][c].create_rectangle((0, 0, 200, 200), fill="yellow", width=5)
         b[r][c].tag_bind(quadrato, "<Button-1>", lambda e, a=r, b=c: p(a, b))
         b[r][c].grid(row = r, column = c, sticky = "nswe")
 root.mainloop()
