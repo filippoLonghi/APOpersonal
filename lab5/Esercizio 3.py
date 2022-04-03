@@ -1,21 +1,13 @@
 from tkinter import *
 from tkinter import ttk
 from random import randint
-import time
 
 root = Tk()
 root.title("Asteroid")
 bestscore = 0
 
 def main():
-    global asteroidi
-    global canvas
-    global ship
-    global vel
-    global punteggio
-    global testo_punteggio
-    global bestscore
-    global testo_bestscore
+    global asteroidi, canvas, ship, vel, punteggio, testo_punteggio, bestscore, testo_bestscore
     vel = 3  # velocità della navicella
     punteggio = 0
     root.columnconfigure(0, weight=1)
@@ -54,10 +46,7 @@ def muovi_sotto():
         canvas.move(ship,0,vel)
 
 def muoviAsteroide():
-    global punteggio
-    global testo_punteggio
-    global bestscore
-    global testo_bestscore
+    global punteggio, testo_punteggio, bestscore,testo_bestscore
     for asteroide in asteroidi:
         canvas.move(asteroide, 0, 1)
         c = canvas.coords(asteroide)
