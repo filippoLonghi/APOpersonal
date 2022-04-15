@@ -7,7 +7,7 @@ root.title("Asteroid")
 bestscore = 0
 
 def main():
-    global asteroidi, canvas, ship, vel, punteggio, testo_punteggio, bestscore, testo_bestscore
+    global canvas, ship, vel, punteggio, testo_punteggio, bestscore, testo_bestscore
     vel = 3  # velocità della navicella
     punteggio = 0
     root.columnconfigure(0, weight=1)
@@ -24,8 +24,8 @@ def main():
     testo_punteggio = canvas.create_text(40, 20, font = 40, fill = 'blue', text = "Points: " + str(punteggio))
     testo_bestscore = canvas.create_text(54, 40, font=40, fill='blue', text="Bestscore: " + str(bestscore))
     asteroidi = []
-    muoviAsteroide()
-    creaAsteroide()
+    muoviAsteroide(asteroidi)
+    creaAsteroide(asteroidi)
     root.mainloop()
 
 def muovi_destra():
@@ -45,7 +45,7 @@ def muovi_sotto():
     if c[1] < 500 and c[3] < 500:
         canvas.move(ship,0,vel)
 
-def muoviAsteroide():
+def muoviAsteroide(asteroidi):
     global punteggio, testo_punteggio, bestscore,testo_bestscore
     for asteroide in asteroidi:
         canvas.move(asteroide, 0, 1)
@@ -63,16 +63,15 @@ def muoviAsteroide():
                 bestscore = punteggio
                 canvas.delete(testo_bestscore)
                 testo_bestscore = canvas.create_text(54, 40, font=40, fill='blue', text="Bestscore: " + str(bestscore))
-    canvas.after(20, muoviAsteroide) #velocità delle asteroidi
+    canvas.after(20, muoviAsteroide, asteroidi) #velocità delle asteroidi
 
-def creaAsteroide():
+def creaAsteroide(asteroidi):
     MAX = 80 #grandezza massima meteorite
     MIN = 40 #grandezza minima meteorite
     a = randint(MIN, MAX)
     asteroide = canvas.create_oval((0,0,a,a), outline="white", fill="black", width=2)
     canvas.move(asteroide, randint(a,500-a), -MAX)  # genera le asteroidi al di fuori del campo visibile dall'utente
     asteroidi.append(asteroide)
-    canvas.after(2000,creaAsteroide) #numero di asteroidi generate
+    canvas.after(2000,creaAsteroide, asteroidi) #numero di asteroidi generate
 
 main()
-
