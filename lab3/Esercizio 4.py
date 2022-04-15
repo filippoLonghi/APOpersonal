@@ -5,8 +5,8 @@ root = Tk()
 root.title("Esercizio 4")
 
 spinval = StringVar()
-spinval.set("0")
-spinbox = ttk.Spinbox(root,from_=0,to=100,textvariable=spinval)
+spinval.set(0) # spinval.set(value=0)
+spinbox = ttk.Spinbox(root,from_=0,to=100,textvariable=spinval,wrap=True)
 spinbox.state(["readonly"])
 
 def incrementaDiUno():

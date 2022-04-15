@@ -6,10 +6,10 @@ root.title("Esercizio 1")
 
 label = ttk.Label(root, text='questo spazio cambierà colore')
 
+colors = ["red", "blue", "yellow", "white"]
 num = 0
 def changeColor():
     global num
-    colors = ["red", "blue", "yellow", "white"]
     label["background"] = colors[num]
     if num < 3:
         num += 1

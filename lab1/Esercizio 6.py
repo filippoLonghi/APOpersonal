@@ -6,6 +6,7 @@ for i in range(N):
     for n in range(N):
         space.append(" ")
     matrice.append(space)
+# matrice = [[" "]*N for i in range(N)]
 
 for rig in range(N):
     for col in range(N):
@@ -17,5 +18,5 @@ for rig in range(N):
             matrice[rig][col] = matrice[rig-1][col]
         else:
             matrice[rig][col] = matrice[rig-1][col] + matrice[rig][col-1]
-        print(matrice[rig][col], "  ", end="")
+        print("{:{fill}}".format(matrice[rig][col], fill=N), end="")
     print()
