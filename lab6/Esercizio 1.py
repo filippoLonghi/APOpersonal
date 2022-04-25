@@ -19,9 +19,7 @@ class Canestri:
         return self._squadre
 
     def get_summary(self):
-        sommario = f'{self._canestri_tot} {self._media}'
-        return sommario
-
+        return f'{self._canestri_tot} {self._media}'
 
 def main():
     torneo = Canestri()
