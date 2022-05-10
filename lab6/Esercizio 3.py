@@ -1,44 +1,44 @@
 class Player:
 
     def __init__(self, name, surname, age):
-        self.name = name
-        self.surname = surname
-        self.age = age
-        self.team = None
+        self._name = name
+        self._surname = surname
+        self._age = age
+        self._team = None
 
     def get_name(self):
-        return self.name
+        return self._name
 
     def get_surname(self):
-        return self.surname
+        return self._surname
 
     def get_age(self):
-        return self.age
+        return self._age
 
     def set_team(self, team):
-        self.team = team.get_name()
+        self._team = team.get_name()
 
     def get_team(self):
-        return self.team
+        return self._team
 
 class Team:
 
     def __init__(self, name, city):
-        self.name = name
-        self.city = city
-        self.players = []
+        self._name = name
+        self._city = city
+        self._players = []
 
     def get_name(self):
-        return self.name
+        return self._name
 
     def get_city(self):
-        return self.city
+        return self._city
 
     def add_player(self, player):
-        self.players.append(f'{player.get_name()} {player.get_surname()}')
+        self._players.append(f'{player.get_name()} {player.get_surname()}')
 
     def get_players(self):
-        return self.players
+        return self._players
 
 def main():
     primo_player = Player("Giacomo", "Berrettini", 22)

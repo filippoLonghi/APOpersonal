@@ -1,32 +1,33 @@
 class Id:
-    numero_documento = 0
+    _numero_documento = 0
     def __init__(self, nome, cognome, anno_rilascio=2022):
-        self.nome = nome
-        self.cognome = cognome
-        self.anno_rilascio = anno_rilascio
-        self.anno_nascita = "non disponibile"
-        Id.numero_documento += 1
+        self._nome = nome
+        self._cognome = cognome
+        self._anno_rilascio = anno_rilascio
+        self._anno_nascita = "non disponibile" #None
+        Id._numero_documento += 1
+        # self._numero_documento = Id._numero_documento
 
     def get_cognome(self):
-        return self.nome
+        return self._cognome
 
     def get_nome(self):
-        return self.cognome
+        return self._nome
 
     def get_anno_rilascio(self):
-        return self.anno_rilascio
+        return self._anno_rilascio
 
     def set_birth_year(self, anno_nascita):
-        if anno_nascita > self.anno_rilascio:
-            self.anno_nascita = self.anno_rilascio
+        if anno_nascita >= self._anno_rilascio:
+            self._anno_nascita = self._anno_rilascio
         else:
-            self.anno_nascita = anno_nascita
+            self._anno_nascita = anno_nascita
 
     def get_anno_nascita(self):
-        return self.anno_nascita
+        return self._anno_nascita
 
     def get_numero_documento(self):
-        return Id.numero_documento
+        return Id._numero_documento #self._numero_documento
 
 def main():
     prima_carta_identità = Id("Mario", "Rossi")
@@ -39,6 +40,6 @@ def main():
     seconda_carta_identità.set_birth_year(2003)
     print(seconda_carta_identità.get_anno_nascita()) # --> 2003
     print(seconda_carta_identità.get_anno_rilascio()) #--> 2034
-    print(prima_carta_identità.get_numero_documento()) #è indifferente chiamare il getter sul primo o secodno documento, il contatore si è già incrementato --> 2
+    print(seconda_carta_identità.get_numero_documento()) #è indifferente chiamare il getter sul primo o secodno documento, il contatore si è già incrementato --> 2
 
 main()

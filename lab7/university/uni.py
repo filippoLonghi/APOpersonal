@@ -60,15 +60,14 @@ class University:
         students = ""
         for i in range(len(self.attendees[course_id])):
             if i < len(self.attendees[course_id]) - 1:
-                student = f'{self.attendees[course_id][i]} {self.students[self.attendees[course_id][i]].get_name()} {self.students[self.attendees[course_id][i]].get_surname()}\n'
-                #student = self.attendees[course_id][i].get_student_info()   perchè non va?
+                student = self.get_student_info(self.attendees[course_id][i]) + "\n"
             else:
-                student = f'{self.attendees[course_id][i]} {self.students[self.attendees[course_id][i]].get_name()} {self.students[self.attendees[course_id][i]].get_surname()}'
+                student = self.get_student_info(self.attendees[course_id][i])
             students += student
         return students
 
     def get_study_plan(self, student_id: int) -> List[str]:
         courses = []
         for i in range(len(self.study_plan[student_id])):
-            courses.append(f'{self.study_plan[student_id][i]},{self.courses[self.study_plan[student_id][i]].get_title()},{self.courses[self.study_plan[student_id][i]].get_teacher()}')
+            courses.append(self.get_course_info(self.study_plan[student_id][i]))
         return courses
