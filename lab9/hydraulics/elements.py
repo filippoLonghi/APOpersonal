@@ -10,7 +10,7 @@ class Element(ABC):
         return self._name
 
     def connect(self, elm: "Element") -> None:
-        return None
+        return None #pass
 
     def check_connection(self, elm):
         return None

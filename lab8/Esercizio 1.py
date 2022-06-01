@@ -34,18 +34,42 @@ class BathRoom(Room):
 
     def get_bidet(self):
         return self._bidet
+#
+# def main():
+#     stanza = Room(120, 10, 25)
+#     bagno = BathRoom(120, 10, 25, 2, True, True, False)
+#
+#     print(bagno.get_sinks())
+#     print(bagno.get_showers())
+#     print(bagno.get_bath_tub())
+#     print(bagno.get_bidet())
+#
+#     print(bagno.get_sm())
+#     print(bagno.get_windows())
+#     print(bagno.get_power_outlets())
 
 def main():
-    stanza = Room(120, 10, 25)
-    bagno = BathRoom(120, 10, 25, 2, True, True, False)
+    # questo esempio mostra come classe figlio eredita metodo classe padre
+    r1 = Room(15, 2, 5)
+    r2 = BathRoom(8, 1, 3, 2, False, True, True)
 
-    print(bagno.get_sinks())
-    print(bagno.get_showers())
-    print(bagno.get_bath_tub())
-    print(bagno.get_bidet())
+    print("Room square meters: {}".format(r1.get_sm()))
+    print("BathRoom square meters: {}".format(r2.get_sm()))
 
-    print(bagno.get_sm())
-    print(bagno.get_windows())
-    print(bagno.get_power_outlets())
+    print("Room windows: {}".format(r1.get_windows()))
+    print("BathRoom windows: {}".format(r2.get_windows()))
+
+    print("Room outlets: {}".format(r1.get_power_outlets()))
+    print("BathRoom outlets: {}".format(r2.get_power_outlets()))
+
+    print("BathRoom sinks: {}".format(r2.get_sinks()))
+    print("BathRoom shower: {}".format(r2.get_showers()))
+    print("BathRoom tub: {}".format(r2.get_bath_tub()))
+    print("BathRoom bidet: {}".format(r2.get_bidet()))
+
+    print("r2 is instance of Room: {}".format(isinstance(r2, Room)))
+    print("r1 is instance of BathRoom: {}".format(isinstance(r1, BathRoom)))
+    print("r2 is instance of BathRoom: {}".format(isinstance(r2, BathRoom)))
+
 
 main()

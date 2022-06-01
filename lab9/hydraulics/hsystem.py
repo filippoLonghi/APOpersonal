@@ -15,17 +15,18 @@ class HSystem:
 
     def _HSystem_connections(self):
         self._connected_elements = []
-        for element in self._elements:
-            for i in self._elements:
-                if element.check_connection(i) and element not in self._connected_elements:
-                    self._connected_elements.append(element)
-                    if isinstance(element, Split):
-                        if element.get_outputs()[0] != None:
-                            self._connected_elements.append(element.get_outputs()[0])
-                        if element.get_outputs()[1] != None:
-                            self._connected_elements.append(element.get_outputs()[1])
-                    if isinstance(element, Tap) and isinstance(i, Sink):
-                        self._connected_elements.append(i)
+        # for element in self._elements:
+        #     for i in self._elements:
+        #         if element.check_connection(i) and element not in self._connected_elements:
+        #             self._connected_elements.append(element)
+        #             if isinstance(element, Split):
+        #                 if element.get_outputs()[0] != None:
+        #                     self._connected_elements.append(element.get_outputs()[0])
+        #                 if element.get_outputs()[1] != None:
+        #                     self._connected_elements.append(element.get_outputs()[1])
+        #             if isinstance(element, Tap) and isinstance(i, Sink):
+        #                 self._connected_elements.append(i)
+
 
     def simulate(self) -> List[str]:
         self._HSystem_connections()

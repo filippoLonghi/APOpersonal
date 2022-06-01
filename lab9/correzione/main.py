@@ -1,5 +1,5 @@
-from hydraulics.hsystem import HSystem
-from hydraulics.elements import Source, Tap, Sink, Split
+from correzione.hydraulics.hsystem import HSystem
+from correzione.hydraulics.elements import Source, Tap, Sink, Split
 
 
 def main():
@@ -30,7 +30,6 @@ def main():
     spl_1.connect_at(snk_1, 0)
     spl_1.connect_at(snk_2, 1)
 
-
     # get outputs
     print("Outputs:")
     print(src_1.get_output().get_name() if src_1.get_output() is not None else None)    # Tap_1
@@ -53,7 +52,7 @@ def main():
     # ]
 
     # close tap and run another simulation
-
+    tap_1.set_status(to_open=False)
     print("Second simulation:")
     print(h_sys.simulate())
     # [
