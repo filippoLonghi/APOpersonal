@@ -24,6 +24,7 @@ class Food:
     def raw_materials(self) -> List[NutritionalElement]:
         raw_materials = [elm[1] for elm in sorted(self._raw_materials.items(), key=operator.itemgetter(0))]
         return raw_materials
+        # return sorted(list(self._raw_materials.values()))
 
     def get_raw_material(self, name: str) -> NutritionalElement:
         return self._raw_materials[name]

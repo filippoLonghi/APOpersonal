@@ -24,14 +24,18 @@ class Great:
         print(f'Hello {self._name}')
 
     @repeat_ten_times
-    @time_execution
     def say_good(self, time_of_day):
         print(f'Good {time_of_day} {self._name}')
 
 
+# def main():
+#     saluti = Great("Filippo")
+#     saluti.say_good("morning")
+#     saluti.say_hello()
+
 def main():
-    saluti = Great("Filippo")
-    saluti.say_good("morning")
-    saluti.say_hello()
+    g = Great("Pietro")
+    g.say_hello()
+    g.say_good("morning")
 
 main()

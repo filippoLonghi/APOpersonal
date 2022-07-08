@@ -58,13 +58,44 @@ class Square(Shape):
     def get_perimeter(self):
         return self._side_length * 4
 
-def main():
-    triangolo = Triangle("triangolo1",5, 6, 7)
-    print(triangolo.get_area())
-    print(triangolo.get_perimeter())
+# def main():
+#     triangolo = Triangle("triangolo1",5, 6, 7)
+#     print(triangolo.get_area())
+#     print(triangolo.get_perimeter())
+#
+#     quadrato = Square("quadrato1", 5)
+#     print(quadrato.get_area())
+#     print(quadrato.get_perimeter())
 
-    quadrato = Square("quadrato1", 5)
-    print(quadrato.get_area())
-    print(quadrato.get_perimeter())
+def main():
+    # controllo che classe astratta non sia istanziabile
+    try:
+        s = Shape()
+    except TypeError as e:
+        print("Error: {}".format(e))
+
+    # creo triangolo e testo override
+    t = Triangle("Triangolo Scaleno", 2, 3, 4)
+    print(t.get_name())
+    print("\t - Perimetro: {:.3f}".format(t.get_perimeter()))
+    print("\t - Area: {:.3f}".format(t.get_area()))
+
+    # creo triangolo e testo override
+    t = Triangle("Triangolo Isoscele", 2, 3)
+    print(t.get_name())
+    print("\t - Perimetro: {:.3f}".format(t.get_perimeter()))
+    print("\t - Area: {:.3f}".format(t.get_area()))
+
+    # creo triangolo e testo override
+    t = Triangle("Triangolo Equilatero", 3)
+    print(t.get_name())
+    print("\t - Perimetro: {:.3f}".format(t.get_perimeter()))
+    print("\t - Area: {:.3f}".format(t.get_area()))
+
+    # creo rettangolo e testo override
+    s = Square("Un Quadrato", 5)
+    print(s.get_name())
+    print("\t - Perimetro: {:.3f}".format(s.get_perimeter()))
+    print("\t - Area: {:.3f}".format(s.get_area()))
 
 main()

@@ -10,8 +10,11 @@ def _call_ingredients_data(data, obj):
     if data == "fats":
         return obj.fats
 
-def _proportions_per100g(data, diz, tot):
-    per100g = (100 * _proportions_perxg(data, diz)) / tot
+def _proportions_per100g(data, diz):
+    tot_quantity = 0
+    for elm in diz:
+        tot_quantity += diz[elm]
+    per100g = (100 * _proportions_perxg(data, diz)) / tot_quantity
     return per100g
 
 def _proportions_perxg(data, diz):
@@ -32,11 +35,9 @@ class Recipe(NutritionalElement):
         self._ingredients = {} #{RawMaterial: quantity}
         self._name = name
         self._food_obj = food_obj
-        self._tot_quantity = 0
 
     def add_ingredient(self, raw_material_name: str, quantity: float) -> "Recipe":
         self._ingredients[self._food_obj.get_raw_material(raw_material_name)] = quantity
-        self._tot_quantity += quantity
         return self
 
     @property
@@ -45,19 +46,19 @@ class Recipe(NutritionalElement):
 
     @property
     def calories(self) -> float:
-        return _proportions_per100g("calories", self._ingredients, self._tot_quantity)
+        return _proportions_per100g("calories", self._ingredients)
 
     @property
     def proteins(self) -> float:
-        return _proportions_per100g("proteins", self._ingredients, self._tot_quantity)
+        return _proportions_per100g("proteins", self._ingredients)
 
     @property
     def carbs(self) -> float:
-        return _proportions_per100g("carbs", self._ingredients, self._tot_quantity)
+        return _proportions_per100g("carbs", self._ingredients)
 
     @property
     def fats(self) -> float:
-        return _proportions_per100g("fats", self._ingredients, self._tot_quantity)
+        return _proportions_per100g("fats", self._ingredients)
 
     @property
     def per100g(self) -> bool:
@@ -76,7 +77,6 @@ class Menu(NutritionalElement):
         self._food_obj = food_obj
         self._recipes = {}
         self._products = []
-        self._tot_quantity = 0
 
     def add_recipe(self, recipe_name: str, quantity: float) -> "Menu":
         self._recipes[self._food_obj.get_recipe(recipe_name)] = quantity
